@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Control de Pausas | Dashboard</title>
+    <meta name="description" content="Panel de control y documentación para la API de Gestión de Pausas Activas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="glass-bg"></div>
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+
+    <main class="container">
+        <header class="hero">
+            <div class="badge">API v1.0 Live</div>
+            <h1>Sistema de <span class="gradient-text">Control de Pausas</span></h1>
+            <p class="subtitle">Gestión inteligente de bienestar laboral y productividad.</p>
+        </header>
+
+        <section class="grid">
+            <a href="/apidocs/" class="card interactive">
+                <div class="card-icon">📚</div>
+                <h3>Documentación</h3>
+                <p>Explora los endpoints con Swagger UI interactivo.</p>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="/api" class="card interactive">
+                <div class="card-icon">⚡</div>
+                <h3>Estado de la API</h3>
+                <p>Verifica la salud del sistema y descubre los servicios activos.</p>
+                <div class="arrow">→</div>
+            </a>
+
+            <div class="card status-card">
+                <div class="card-icon">🚀</div>
+                <h3>Endpoints Disponibles</h3>
+                <ul class="endpoint-list">
+                    <li><code>/api/empleados</code> - Gestión de personal</li>
+                    <li><code>/api/pausas</code> - Registro de actividades</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 ESPE - Aplicaciones Basadas en el Conocimiento</p>
+        </footer>
+    </main>
+
+    <script>
+        document.querySelectorAll('.interactive').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+
+</html>

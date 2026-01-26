@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: flask_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://root:root@192.168.208.97:5435/personal
+      - PORT=5000
+    volumes:
+      - .:/app
+    restart: always
+
+# Note: PostgreSQL is assumed to be running externally at the IP provided. 
+# If you want to include it in compose, uncomment the section below:
+#  db:
+#    image: postgres:15
+#    container_name: postgres_db
+#    environment:
+#      POSTGRES_USER: root
+#      POSTGRES_PASSWORD: root
+#      POSTGRES_DB: personal
+#    ports:
+#      - "5435:5432"
