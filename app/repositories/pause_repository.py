@@ -15,6 +15,14 @@ class PauseRepository:
         return query.order_by(Pause.fecha_pausa.desc(), Pause.hora_inicio_pausa.desc()).all()
 
     @staticmethod
+    def get_by_employee_date(ci, fecha):
+        return Pause.query.filter(Pause.empleado_pausa == ci, Pause.fecha_pausa == fecha).all()
+
+    @staticmethod
+    def get_by_id(id_pausa):
+        return Pause.query.get(id_pausa)
+
+    @staticmethod
     def create(data):
         pause = Pause(
             tipo_pausa=data.get('tipo'),

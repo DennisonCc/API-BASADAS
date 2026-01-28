@@ -241,6 +241,8 @@ def update_pausa(id_pausa):
         if success:
             return jsonify({"success": True, "message": "Pausa actualizada"})
         return jsonify({"success": False, "message": "Pausa no encontrada"}), 404
+    except ValueError as e:
+        return jsonify({"success": False, "message": str(e)}), 400
     except Exception as e:
         return jsonify({"success": False, "message": str(e)}), 500
 

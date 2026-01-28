@@ -30,3 +30,6 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+
+# Archivos de Pruebas Temporales
+scripts/verify_validations.py
